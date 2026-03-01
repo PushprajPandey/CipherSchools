@@ -1,0 +1,783 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+// ── Container ────────────────────────────────────────────────
+.assignment-attempt {
+  @include container;
+  padding-bottom: $spacing-lg;
+
+  @include respond-to(sm) {
+    padding-bottom: $spacing-2xl;
+  }
+}
+
+// ── Not Found ────────────────────────────────────────────────
+.assignment-attempt__not-found {
+  text-align: center;
+  padding: $spacing-2xl $spacing-lg;
+
+  h2 {
+    font-size: $font-size-2xl;
+    color: $text-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: $text-muted;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// ── Top Bar ──────────────────────────────────────────────────
+.assignment-attempt__top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1px solid $border-color;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+
+  @include respond-to(xs) {
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-md;
+    gap: $spacing-sm;
+  }
+}
+
+.assignment-attempt__back {
+  @include button-secondary;
+  font-size: $font-size-xs;
+  padding: $spacing-xs $spacing-sm;
+  min-height: 34px;
+
+  @include respond-to(xs) {
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-md;
+    min-height: 38px;
+  }
+}
+
+.assignment-attempt__pagination {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.assignment-attempt__page-btn {
+  @include button-secondary;
+  font-size: $font-size-xs;
+  padding: $spacing-xs $spacing-sm;
+  min-height: 34px;
+
+  @include respond-to(sm) {
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-md;
+  }
+}
+
+.assignment-attempt__page-indicator {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $text-muted;
+  padding: 0 $spacing-xs;
+}
+
+// ── Header ───────────────────────────────────────────────────
+.assignment-attempt__header {
+  margin-bottom: $spacing-lg;
+}
+
+.assignment-attempt__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.assignment-attempt__title-group {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.assignment-attempt__id {
+  font-size: $font-size-sm;
+  font-weight: 700;
+  color: $text-muted;
+  background: $bg-tertiary;
+  padding: 2px $spacing-sm;
+  border-radius: $radius-sm;
+  letter-spacing: 0.5px;
+}
+
+.assignment-attempt__title {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  color: $text-primary;
+  letter-spacing: -0.3px;
+
+  @include respond-to(xs) {
+    font-size: $font-size-xl;
+  }
+
+  @include respond-to(sm) {
+    font-size: $font-size-2xl;
+  }
+
+  @include respond-to(md) {
+    font-size: $font-size-3xl;
+  }
+}
+
+.assignment-attempt__badges {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.assignment-attempt__difficulty {
+  padding: $spacing-xs $spacing-md;
+  border-radius: 100px;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &--easy {
+    background-color: rgba($easy-color, 0.12);
+    color: darken($easy-color, 8%);
+  }
+
+  &--medium {
+    background-color: rgba($medium-color, 0.12);
+    color: darken($medium-color, 8%);
+  }
+
+  &--hard {
+    background-color: rgba($hard-color, 0.12);
+    color: darken($hard-color, 8%);
+  }
+}
+
+.assignment-attempt__category {
+  padding: $spacing-xs $spacing-md;
+  border-radius: 100px;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  background: rgba($primary-color, 0.08);
+  color: $primary-color;
+}
+
+// ── Layout ───────────────────────────────────────────────────
+.assignment-attempt__layout {
+  display: grid;
+  gap: $spacing-md;
+  grid-template-columns: 1fr;
+
+  @include respond-to(xs) {
+    gap: $spacing-lg;
+  }
+
+  @include respond-to(md) {
+    grid-template-columns: 380px 1fr;
+    gap: $spacing-xl;
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: 420px 1fr;
+  }
+}
+
+.assignment-attempt__left-col {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.assignment-attempt__right-col {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+// ── Section Card ─────────────────────────────────────────────
+.assignment-attempt__section {
+  @include card;
+  overflow: hidden;
+  padding: $spacing-md;
+
+  @include respond-to(xs) {
+    padding: $spacing-lg;
+  }
+}
+
+.assignment-attempt__section-title {
+  font-size: $font-size-base;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 2px solid $border-color;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  @include respond-to(sm) {
+    font-size: $font-size-lg;
+  }
+}
+
+.assignment-attempt__section-icon {
+  font-size: $font-size-lg;
+  line-height: 1;
+}
+
+.assignment-attempt__subsection-title {
+  font-size: $font-size-sm;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// ── Problem ──────────────────────────────────────────────────
+.assignment-attempt__problem {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  line-height: 1.7;
+  margin-bottom: $spacing-lg;
+
+  @include respond-to(sm) {
+    font-size: $font-size-base;
+  }
+}
+
+.assignment-attempt__requirements {
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: $spacing-lg;
+    margin-bottom: $spacing-sm;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: $success-color;
+      font-weight: 700;
+    }
+  }
+}
+
+// ── Sample Data ──────────────────────────────────────────────
+.assignment-attempt__table-info {
+  background: $bg-tertiary;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.assignment-attempt__table-label {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.assignment-attempt__table-name {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $primary-color;
+  background: rgba($primary-color, 0.08);
+  padding: 1px 8px;
+  border-radius: $radius-sm;
+}
+
+// ── Data Tabs ────────────────────────────────────────────────
+.assignment-attempt__data-tabs {
+  display: flex;
+  gap: 2px;
+  margin-bottom: $spacing-md;
+  background: $bg-tertiary;
+  border-radius: $radius-md;
+  padding: 3px;
+}
+
+.assignment-attempt__data-tab {
+  flex: 1;
+  padding: $spacing-xs $spacing-sm;
+  border: none;
+  border-radius: $radius-sm;
+  background: transparent;
+  color: $text-muted;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all $transition-fast;
+  min-height: 36px;
+
+  @include respond-to(sm) {
+    font-size: $font-size-sm;
+  }
+
+  &:hover {
+    color: $text-primary;
+  }
+
+  &--active {
+    background: $bg-primary;
+    color: $primary-color;
+    box-shadow: $shadow-sm;
+  }
+}
+
+// ── Tables ───────────────────────────────────────────────────
+.assignment-attempt__schema {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 (-$spacing-md);
+  padding: 0 $spacing-md;
+
+  @include respond-to(xs) {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.schema-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-xs;
+  min-width: 280px;
+
+  @include respond-to(xs) {
+    font-size: $font-size-sm;
+    min-width: auto;
+  }
+
+  th,
+  td {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+
+  th {
+    background: $bg-tertiary;
+    font-weight: 600;
+    color: $text-primary;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:first-child {
+      border-radius: $radius-sm 0 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 $radius-sm 0 0;
+    }
+  }
+
+  td {
+    color: $text-secondary;
+  }
+
+  code {
+    background: rgba($primary-color, 0.08);
+    padding: 2px 8px;
+    border-radius: $radius-sm;
+    font-size: $font-size-xs;
+    color: $primary-color;
+    font-weight: 500;
+  }
+}
+
+.assignment-attempt__sample-data {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 (-$spacing-md);
+  padding: 0 $spacing-md;
+
+  @include respond-to(xs) {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-xs;
+  min-width: 320px;
+
+  @include respond-to(xs) {
+    font-size: $font-size-sm;
+    min-width: auto;
+  }
+
+  th,
+  td {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+
+  th {
+    background: $bg-tertiary;
+    font-weight: 600;
+    color: $text-primary;
+    white-space: nowrap;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  td {
+    color: $text-secondary;
+    font-size: $font-size-sm;
+  }
+
+  tbody tr {
+    transition: background $transition-fast;
+
+    &:hover {
+      background: rgba($primary-color, 0.03);
+    }
+  }
+
+  &__null {
+    color: $text-muted;
+    font-style: italic;
+    font-size: $font-size-xs;
+    background: $bg-tertiary;
+    padding: 1px 6px;
+    border-radius: $radius-sm;
+  }
+}
+
+// ── Editor ───────────────────────────────────────────────────
+.assignment-attempt__editor-section {
+  // editor card gets no overflow hidden so monaco works
+}
+
+.assignment-attempt__editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+
+  .assignment-attempt__section-title {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.assignment-attempt__shortcut {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  background: $bg-tertiary;
+  padding: 3px 10px;
+  border-radius: $radius-sm;
+  font-weight: 500;
+  display: none;
+
+  @include respond-to(sm) {
+    display: inline-block;
+  }
+}
+
+.assignment-attempt__editor {
+  border: 2px solid $border-color;
+  border-radius: $radius-md;
+  overflow: hidden;
+  min-height: 180px;
+  transition: border-color $transition-base;
+
+  &:focus-within {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.08);
+  }
+
+  @include respond-to(xs) {
+    min-height: 220px;
+  }
+
+  @include respond-to(sm) {
+    min-height: 260px;
+  }
+
+  @include respond-to(md) {
+    min-height: 300px;
+  }
+}
+
+// ── Actions ──────────────────────────────────────────────────
+.assignment-attempt__actions {
+  display: flex;
+  gap: $spacing-xs;
+  margin-top: $spacing-md;
+  flex-wrap: wrap;
+
+  @include respond-to(xs) {
+    gap: $spacing-sm;
+  }
+
+  @include respond-to(sm) {
+    gap: $spacing-md;
+  }
+}
+
+.assignment-attempt__execute-btn {
+  @include button-primary;
+  flex: 1;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  font-weight: 600;
+  font-size: $font-size-sm;
+  padding: $spacing-sm $spacing-md;
+
+  @include respond-to(xs) {
+    font-size: $font-size-base;
+    min-width: 140px;
+  }
+
+  @include respond-to(sm) {
+    min-width: 200px;
+  }
+}
+
+.assignment-attempt__hint-btn {
+  @include button-secondary;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  font-weight: 600;
+  border: 2px solid $border-color;
+  font-size: $font-size-sm;
+  padding: $spacing-sm $spacing-md;
+
+  @include respond-to(xs) {
+    font-size: $font-size-base;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $warning-color;
+    color: $warning-color;
+    background: rgba($warning-color, 0.06);
+  }
+}
+
+.assignment-attempt__clear-btn {
+  @include button-secondary;
+  font-size: $font-size-sm;
+  color: $text-muted;
+  min-height: 38px;
+
+  &:hover {
+    color: $error-color;
+    background: rgba($error-color, 0.06);
+  }
+}
+
+// ── Spinner ──────────────────────────────────────────────────
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.assignment-attempt__spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+
+  .assignment-attempt__hint-btn & {
+    border-color: rgba($text-muted, 0.3);
+    border-top-color: $text-primary;
+  }
+}
+
+// ── Results ──────────────────────────────────────────────────
+.assignment-attempt__results-section {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.assignment-attempt__results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+
+  .assignment-attempt__section-title {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.assignment-attempt__execution-time {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $success-color;
+  background: rgba($success-color, 0.1);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.assignment-attempt__results-meta {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin-bottom: $spacing-sm;
+  font-weight: 500;
+}
+
+.assignment-attempt__results {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  max-height: 300px;
+  overflow-y: auto;
+
+  @include respond-to(sm) {
+    max-height: 400px;
+  }
+
+  @include respond-to(md) {
+    max-height: none;
+  }
+
+  .data-table {
+    margin: 0;
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.assignment-attempt__empty {
+  text-align: center;
+  padding: $spacing-xl;
+  color: $text-muted;
+  font-size: $font-size-sm;
+  font-style: italic;
+}
+
+.assignment-attempt__error {
+  background: rgba($error-color, 0.06);
+  border: 1px solid rgba($error-color, 0.2);
+  border-radius: $radius-md;
+  padding: $spacing-md $spacing-lg;
+  color: $error-color;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+}
+
+.assignment-attempt__error-icon {
+  font-size: $font-size-lg;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+// ── Hints ────────────────────────────────────────────────────
+.assignment-attempt__hint-section {
+  animation: fadeInUp 0.3s ease-out;
+  border-left: 4px solid $warning-color;
+}
+
+.assignment-attempt__hint-progress {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-muted;
+  background: $bg-tertiary;
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin-left: auto;
+}
+
+.assignment-attempt__hints-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.assignment-attempt__hint {
+  background: rgba($warning-color, 0.05);
+  border-radius: $radius-md;
+  padding: $spacing-sm $spacing-md;
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  animation: fadeInUp 0.3s ease-out;
+
+  p {
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.assignment-attempt__hint-number {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: $warning-color;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.assignment-attempt__hint-more {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin-top: $spacing-sm;
+  font-style: italic;
+}

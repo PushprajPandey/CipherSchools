@@ -1,0 +1,94 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: $spacing-lg;
+  background: $bg-secondary;
+
+  &__card {
+    text-align: center;
+    background: $bg-primary;
+    border-radius: $radius-lg;
+    padding: $spacing-2xl;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: $shadow-lg;
+  }
+
+  &__icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: $spacing-md;
+    color: $error-color;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__message {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+    line-height: 1.5;
+  }
+
+  &__details {
+    background: $bg-tertiary;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    padding: $spacing-sm;
+    font-size: $font-size-sm;
+    color: $error-color;
+    text-align: left;
+    overflow-x: auto;
+    margin-bottom: $spacing-lg;
+    max-height: 120px;
+    overflow-y: auto;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    @include respond-to(sm) {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &__btn {
+    @include button-base;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $radius-md;
+    font-weight: 500;
+    cursor: pointer;
+
+    &--primary {
+      background: $primary-color;
+      color: #fff;
+
+      &:hover {
+        background: $primary-hover;
+      }
+    }
+
+    &--secondary {
+      background: $bg-tertiary;
+      color: $text-primary;
+      border: 1px solid $border-color;
+
+      &:hover {
+        background: $border-color;
+      }
+    }
+  }
+}
